@@ -1,0 +1,96 @@
+/* Global reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('../images/glbg.jpg'); /* Background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Container styling */
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header styling */
+header {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #1d3557;
+    color: #fff;
+}
+
+header h1 {
+    font-size: 2.5em;
+}
+
+/* Section styling */
+section {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #fafafa; /* Default background color */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+/* Section header styling */
+section h2 {
+    color: #1d3557;
+    margin-bottom: 10px;
+    font-size: 1.8em;
+}
+
+/* Section paragraph styling */
+section p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+/* Hover effect on sections */
+section:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    background-color: transparent; /* Set background to transparent on hover */
+}
+
+/* Button container styling */
+.button-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* Button styling */
+.btn {
+    text-decoration: none;
+    background-color: #55a5d6;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease;
+}
+
+/* Button hover effect */
+.btn:hover {
+    background-color: #1d3557;
+}
+
+/* Add smooth transitions */
+section, .btn {
+    transition: all 0.3s ease;
+}

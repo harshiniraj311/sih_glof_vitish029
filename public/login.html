@@ -1,36 +1,86 @@
 <!DOCTYPE html>
-<html lang = "en">
+<html lang="en">
 <head>
-	<meta charset = "UTF-8">
-	<title> My Form </title>
-	<style>
-		#mylink{
-			font-size: 25px;
-		}
-	</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="homepage.css">
+    <style>
+        body {
+            background-color: #f0f0f0; /* Light background for better contrast */
+        }
+        .form-container {
+            width: 400px; /* Width of the container */
+            margin: 100px auto 0 auto; /* Margin to center and push down */
+            padding: 30px; /* Padding inside the container */
+            background-color: #fff; /* White background for the container */
+            border-radius: 10px; /* Rounded corners */
+            border: 2px solid #000; /* Black border */
+            box-shadow: none; /* No shadow to keep it clean */
+        }
+        input[type="email"],
+        input[type="password"] {
+            width: calc(100% - 24px); /* Adjust width to fit within padding */
+            padding: 12px; /* Padding inside text boxes */
+            margin: 5px 0 10px 0; /* Margin around text boxes */
+            font-size: 1.2em; /* Larger font size */
+            border: 1px solid #ddd; /* Light grey border around input fields */
+            border-radius: 5px; /* Rounded corners for input fields */
+        }
+        label {
+            display: block;
+            margin-bottom: 5px; /* Margin below label */
+            font-size: 1.1em; /* Font size for labels */
+        }
+        .button-container {
+            text-align: center;
+            margin-top: 20px; /* Margin above button container */
+        }
+        button {
+            padding: 12px 20px; /* Padding inside buttons */
+            font-size: 1em; /* Font size for buttons */
+            border: none; /* No border for buttons */
+            border-radius: 5px; /* Rounded corners for buttons */
+            cursor: pointer; /* Pointer cursor on hover */
+            margin: 5px; /* Margin around buttons */
+            background-color: #55a5d6; /* Button background color */
+            color: white; /* Text color */
+        }
+        button:hover {
+            background-color: #1d3557; /* Darker background on hover */
+        }
+        .back-link {
+            display: block;
+            text-align: center; /* Center align the text link */
+            margin-top: 10px; /* Margin above the text link */
+            font-size: 0.9em; /* Smaller font size */
+            color: #55a5d6; /* Same color as the buttons */
+            text-decoration: none; /* Remove underline */
+        }
+        .back-link:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+    </style>
 </head>
-<body align='center'>
-        <header>
-		<h1>Login</h1>
-	</header>
+<body>
+    <header>
+        <h1>Login</h1>
+    </header>
+    <div class="form-container">
+        <form action="/login" method="POST">
+            <label for="email">Email ID</label>
+            <input type="email" id="email" name="email" required>
+            <br>
 
-	<form action="/login" method="POST">
-		<fieldset>
-				
-			<label>Email ID</label>
-			<input type ="email" id = 'email' name="email" placeholder="abc@example.com" required>
-			<br><br>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+            <br>
 
-			<label>Password</label>
-			<input type="password" id = "password" name="password" required>
-			<br><br>
-
-			<button type ="reset">Reset</button>
-			<button type ="submit">Submit</button>
-		</fieldset>
+            <div class="button-container">
+                <button type="submit">Login</button>
+                <a href="./index.html" class="back-link">Back</a>
+            </div>
         </form>
-        <br><br>
-        <a id="mylink" href="./registration.html">register</a>
-
+    </div>
 </body>
 </html>

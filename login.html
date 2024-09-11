@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <style>
+        /* Basic reset for margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Background Image Styles */
+        body {
+            background-image: url('images/glbg.jpg');
+            background-size: cover; /* Cover the entire viewport */
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* Prevent repeating */
+            color: #333; /* Default text color */
+        }
+
+        /* Welcome Bar Styles */
+        .welcome-bar {
+            background-color: #1d3557; /* Semi-transparent green background */
+            color: white; /* White text */
+            text-align: center; /* Center-align text */
+            padding: 10px 0; /* Padding top and bottom */
+            position: fixed; /* Fixed position */
+            width: 100%; /* Full width */
+            top: 0; /* Top of the page */
+            left: 0; /* Left side */
+            z-index: 1000; /* On top of other content */
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            display: flex; /* Flexbox for layout */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            height: calc(100vh - 50px); /* Full viewport height minus the height of the welcome bar */
+            padding: 0 20px; /* Add some horizontal padding */
+        }
+
+        /* Container for forms */
+        .form-container {
+            width: 300px; /* Set a fixed width */
+            padding: 20px; /* Add padding */
+            border: 1px solid #ccc; /* Border */
+            border-radius: 5px; /* Rounded corners */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow effect */
+            background-color: #fff; /* White background */
+            text-align: center; /* Center text */
+        }
+
+        .form-container h2 {
+            margin-bottom: 15px; /* Space below heading */
+        }
+
+        .form-container form {
+            display: flex; /* Flexbox for form elements */
+            flex-direction: column; /* Vertical layout */
+        }
+
+        .form-container label {
+            margin-bottom: 5px; /* Space below label */
+        }
+
+        .form-container input {
+            margin-bottom: 10px; /* Space below input */
+            padding: 8px; /* Padding inside input */
+            border: 1px solid #ccc; /* Border around input */
+            border-radius: 3px; /* Rounded corners */
+        }
+
+        .form-container button {
+            padding: 10px; /* Padding inside button */
+            background-color: #1d3557; /* Green background */
+            color: white; /* White text */
+            border: none; /* Remove border */
+            border-radius: 3px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor on hover */
+        }
+
+        .form-container button:hover {
+            background-color: #1d3557; /* Darker green on hover */
+        }
+
+        /* Sign-up text link style */
+        .sign-up-link {
+            margin-top: 10px; /* Space above link */
+            display: block; /* Block display for full width */
+            color: #1d3557; /* Green color */
+            text-decoration: none; /* Remove underline */
+        }
+
+        .sign-up-link:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+
+        /* Hide inactive form */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Welcome Bar -->
+    <header class="welcome-bar">
+        <h1>Welcome to Our Website!</h1>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <div class="form-container">
+            <!-- Login Form -->
+            <div id="login-form">
+                <h2>Login</h2>
+                <form>
+                    <label for="login-username">Username:</label>
+                    <input type="text" id="login-username" name="username" required>
+                    <label for="login-password">Password:</label>
+                    <input type="password" id="login-password" name="password" required>
+                    <button type="submit">Login</button>
+                    <a href="#" class="sign-up-link" onclick="toggleForms()">Sign Up</a> <!-- Sign Up link -->
+                </form>
+            </div>
+
+            <!-- Sign Up Form -->
+            <div id="signup-form" class="hidden">
+                <h2>Sign Up</h2>
+                <form>
+                    <label for="signup-username">Username:</label>
+                    <input type="text" id="signup-username" name="username" required>
+                    <label for="signup-email">Email:</label>
+                    <input type="email" id="signup-email" name="email" required>
+                    <label for="signup-password">Password:</label>
+                    <input type="password" id="signup-password" name="password" required>
+                    <button type="submit">Sign Up</button>
+                    <a href="#" class="sign-up-link" onclick="toggleForms()">Login</a> <!-- Login link -->
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Function to toggle between login and sign-up forms
+        function toggleForms() {
+            const loginForm = document.getElementById('login-form');
+            const signupForm = document.getElementById('signup-form');
+            loginForm.classList.toggle('hidden');
+            signupForm.classList.toggle('hidden');
+        }
+
+        // Handle form submission for login
+        document.querySelector('#login-form form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form from submitting the default way
+
+            const username = document.getElementById('login-username').value;
+            const password = document.getElementById('login-password').value;
+
+            // Simulate a successful login (add your validation here)
+            if (username === 'user' && password === 'password') {
+                window.location.href = 'public/homepage.html'; // Redirect to homepage after login
+            } else {
+                alert('Invalid login credentials!'); // Show an error message if login fails
+            }
+        });
+
+        // Handle form submission for sign-up (optional - you can add validation here)
+        document.querySelector('#signup-form form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form from submitting the default way
+
+            // Example sign-up validation logic (you can customize this)
+            const username = document.getElementById('signup-username').value;
+            const email = document.getElementById('signup-email').value;
+            const password = document.getElementById('signup-password').value;
+
+            // Simulate a sign-up success (you can add server-side integration here)
+            if (username && email && password) {
+                alert('Sign-up successful!');
+                toggleForms(); // Switch back to login form
+            } else {
+                alert('Please fill in all fields.');
+            }
+        });
+    </script>
+</body>
+</html>
